@@ -10,3 +10,4 @@ js file
     seperate files with  file with name of the html file followed by script
         eg: login.html
         script : loginscript.js
+ok sir
