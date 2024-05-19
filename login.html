@@ -2,16 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="/insight/styles/login-styles.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png" alt="Logo">
+            <img src="/insight/images/logo.png" alt="Logo">
             <h1 id="appname">insight</h1>
         </div>
     </header>
+    <main>
+        <h1 style="color: rgb(54, 62, 69);">Pick your role</h1>
+        <div class="image-container">
+            <img src="/insight/images/student.jpeg" alt="Student" class="login-image" id="student-image" onclick="selectRole('student')">
+            <img src="/insight/images/faculty.jpeg" alt="Faculty" class="login-image" id="faculty-image" onclick="selectRole('faculty')">
+        </div>
+        <button id="signin-button" onclick="goToLoginPage()">Go to Sign-in Page</button>
+    </main>
+    <script>
+        let selectedRole = '';
+
+        function selectRole(role) {
+            selectedRole = role;
+            document.getElementById('student-image').classList.remove('selected');
+            document.getElementById('faculty-image').classList.remove('selected');
+        
+            if (role === 'student') {
+                document.getElementById('student-image').classList.add('selected');
+            } else if (role === 'faculty') {
+                document.getElementById('faculty-image').classList.add('selected');
+            }
+        }
+        
+        function goToLoginPage() {
+            if (selectedRole === 'student') {
+                window.location.href = 'student-login.html';
+            } else if (selectedRole === 'faculty') {
+                window.location.href = 'faculty-login.html';
+            } else {
+                alert('Please select a role before proceeding.');
+            }
+        }
+        
+
+    </script>
 </body>
 </html>

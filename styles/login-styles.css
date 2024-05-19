@@ -1,0 +1,124 @@
+/* login-styles.css */
+
+/* Your existing styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(159,237,252,1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+header {
+    background: rgba(25,119,243,255);
+    padding: 10px;
+    color: white;
+    font-family: 'Dancing Script', cursive, sans-serif;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+#appname {
+    margin: 0;
+    font-size: 24px;
+}
+
+.logo img {
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    margin-top: 80px; /* Add some top margin to separate from header */
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Align items vertically centered */
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.login-image {
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: border 0.3s;
+    border-radius: 35px; /* Add curved edges */
+}
+
+/* Adjust the width of each image for mobile devices */
+@media (max-width: 768px) {
+    .login-image {
+        width: 100%; /* Full width for mobile devices */
+        max-width: calc(50% - 20px); /* Limit the maximum width to 50% of the viewport width minus padding */
+        margin-bottom: 10px;
+    }
+
+    /* Adjust the size of student image */
+    .login-image.student {
+        width: 100%;
+        height: auto;
+        max-width: 487px;
+        max-height: 809px;
+    }
+
+    /* Adjust the size of faculty image */
+    .login-image.faculty {
+        width: 100%;
+        height: auto;
+        max-width: 490px;
+        max-height: 902px;
+    }
+}
+
+.login-image.selected {
+    border: px solid;
+    border-image-slice: 1;
+    border-radius: 40px; /* Add curved edges to border */
+    box-shadow: 0 0 20px rgb(0, 255, 0); /* Add green shadow */
+}
+
+
+#signin-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgba(25,119,243,255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 80%;
+    max-width: 400px;
+}
+
+#signin-button:hover {
+    background-color: #0056b3;
+}
