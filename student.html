@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Student</title>
+</head>
+<body>
+     <h1>Welcome, <span id="name"></span>!</h1>  
+     <script>
+        function displayStudentName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentName = urlParams.get('name');
+            if (studentName) {
+                document.getElementById('name').innerText = studentName;
+            }
+        }
+            displayStudentName(); 
+        
+    </script>
+</body>
+</html>

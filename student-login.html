@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login-styles.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1 id="appname">insight</h1>
+        </div>
+    </header>
+    <main>
+        <h1>Student Login</h1>
+        <p>Welcome! Please enter your official Gmail ID and password below:</p>
+        <form onsubmit="return validateForm()">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <span id="emailError" style="color: red; display: none;"></span><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <span id="passwordError" style="padding: 5px; color:red "></span><br>
+            
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+    
+            // Email validation
+            if (!email.endsWith('@sece.ac.in')) {
+                var name = email.split('@')[0].split('.')[0]; // Split by periods and join with space
+                document.getElementById('emailError').textContent = name + ", your email is invalid.";
+                document.getElementById('emailError').style.display = 'inline';
+                return false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+    
+            // Password validation
+            var nameFromEmail = email.split('@')[0].split('.')[0];
+            var students = {
+                // Add more student names and passwords here
+                "karpagamaheswari": "23cs065",
+                "karthick": "23cs066",
+                "karthikraja": "23cs067",
+                "karthikesh": "23cs068",
+                "kavishanthini": "23cs069",
+                "kaviprabha": "23cs070",
+                "kavyashree": "23cs071",
+                "kirtick": "23cs072",
+                "kirubhasagar": "23cs073",
+                "kishorraguram": "23cs074",
+                "kritikasapkota": "23cs075",
+                "lakshetaa": "23cs076",
+                "madhavakrishnan": "23cs077",
+                "madhumathi": "23cs078",
+                "maheshkumar": "23cs079",
+                "malarvizhi": "23cs080",
+                "mamtha@akshaya": "23cs081",
+                "manimegalai": "23cs082",
+                "manishraghul": "23cs083",
+                "manobalan": "23cs084",
+                "manobharathi": "23cs085",
+                "mhithun": "23cs086",
+                "midhuna": "23cs087",
+                "miruna": "23cs088",
+                "moganprasad": "23cs089",
+                "mohamedanas": "23cs090",
+                "mohamedfazil": "23cs091",
+                "mohammedsafil": "23cs092",
+                "mohanapriya": "23cs093",
+                "mohith": "23cs094",
+                "monisha": "23cs095",
+                "mugilan": "23cs096",
+                "mukishkumar": "23cs097",
+                "mythili": "23cs098",
+                "mythreyini": "23cs099",
+                "nagalakshmi": "23cs100",
+                "naresh": "23cs101",
+                "narthika": "23cs102",
+                "naveenprasanth": "23cs103",
+                "nigun": "23cs104",
+                "nikhilpranesh": "23cs105",
+                "nisasowbika": "23cs106",
+                "nishanthram": "23cs107",
+                "nithien": "23cs108",
+                "nithyaganesh": "23cs109",
+                "nithyasarathi": "23cs110",
+                "nivetha": "23cs111",
+                "oshiyani": "23cs112",
+                "poojana": "23cs113",
+                "poonguzhali": "23cs114",
+                "pranaov": "23cs115",
+                "pranati": "23cs116",
+                "prasannakumar": "23cs117",
+                "prasanna": "23cs118",
+                "praveenmuthukumar": "23cs119",
+                "ragulraj": "23cs120",
+                "ramya": "23cs121",
+                "ravena": "23cs122",
+                "raviagrahari": "23cs123",
+                "rhythanvarsha": "23cs124",
+                "rikesh": "23cs125",
+                "rithanya": "23cs126",
+                "rithiga": "23cs127",
+                "rithika": "23cs128",
+                "rohini": "23cs129",
+                "rohith": "23cs130"
+            };
+
+            if (!(nameFromEmail in students)) {
+                document.getElementById('passwordError').textContent = nameFromEmail + ", please enter the correct password.";
+                document.getElementById('passwordError').style.display = 'inline';
+                return false;
+            } else {
+                var correctPassword = students[nameFromEmail];
+                if (password !== correctPassword) {
+                    document.getElementById('passwordError').textContent = nameFromEmail + ", please enter the correct password.";
+                    document.getElementById('passwordError').style.display = 'inline';
+                    return false;
+                } else {
+                    // Successful validation
+                    document.getElementById('passwordError').style.display = 'none';
+                    window.location.href = "student.html?name=" + encodeURIComponent(nameFromEmail);
+                    return false; // Prevent default form submission
+                }
+            }
+        }
+    </script>
+</body>
+</html>

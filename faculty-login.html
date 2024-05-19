@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login-styles.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1 id="appname">insight</h1>
+        </div>
+    </header>
+    <main>
+        <h1>Faculty Login</h1>
+        <p>Welcome! Please enter your official Gmail ID and password below:</p>
+        <form onsubmit="return validateForm()">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <span id="emailError" style="color: red; display: none;"></span><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <span id="passwordError" style="padding: 5px; color:red "></span><br>
+            
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var name = email.split('@')[0].split('.')[0]; 
+            // Email validation
+            if (!email.endsWith('@sece.ac.in')) {
+                var name = email.split('@')[0].split('.')[0]; // Split by periods and join with space
+                document.getElementById('emailError').textContent = name + ", your email is invalid.";
+                document.getElementById('emailError').style.display = 'inline';
+                return false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+                    document.getElementById('passwordError').style.display = 'none';
+                    window.location.href = "faculty.html?name=" + encodeURIComponent(name);
+                    return false; // Prevent default form submission
+                
+        }
+    </script>
+</body>
+</html>
