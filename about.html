@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Needed for positioning thank-you div */
+        overflow: hidden; /* Hide overflow to prevent scrollbar */
+    }
+    
+    .text-animation {
+        width: 80%;
+        text-align: center;
+    }
+    
+    .text-animation p {
+        margin: 0;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        animation: moveText 25s linear infinite; /* Adjust animation duration as needed */
+    }
+    
+    @keyframes moveText {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+    
+    .thank-you {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0; /* Initially hidden */
+        transition: opacity 1s ease; /* Smooth transition for "Thank you" message */
+    }
+    </style>
+</head>
+<div class="container">
+    <div class="text-animation">
+        <p>TEAMMATES : Poojana S, Nithyaganesh K, Mohammed Safil S,
+            Nithyasarathi M
+            
+            MENTOR : Sampath Kumar S (THEME: Open Innovation)
+            PROBLEM STATEMENT : Addressing the challenge of fostering positive behavior in educational
+            institutions, Need a solution that promotes a culture of respect and accountability among students,
+            teachers, and parents, leading to a disciplined and harmonious learning environment.
+            Introduction:
+            We introduce an app like social media designed to improve manners among college students. It
+            helps students, teachers, and parents communicate better and encourages good behavior on campus.
+            Methodology:
+            "Insight" lets teachers talk privately with students and parents about behavior issues while praising
+            good behavior publicly. It also gives students points and badges for being polite.
+            Features:
+            Reporting System: Teachers can privately address behavior problems with students and parents.
+            Public Acknowledgment: Good behavior is publicly recognized, fostering a supportive environment.
+            Manner Points and Badges: Students earn points and badges for tracking their progress.
+            Upvotes and Downvotes: Students receive upvotes for displaying mannerism and downvotes for
+            disciplinary issues.
+            Results:
+            Using "Insight" has improved manners on campus. Students know what's expected, and teachers
+            can address problems discreetly. Everyone feels encouraged to behave well.
+            Conclusion:
+            "Insight" helps build a respectful and accountable community in schools. It's easy to use and brings
+            students, teachers, and parents together.
+            Impact:
+            "Insight" has made campuses more disciplined and boosting student well-being and academic success. By
+            encouraging good behavior, it creates a better learning environment for everyone.
+            Technology Stacks:
+            "Insight" uses Figma for prototyping and Flutterflow for app development with help of firebase for data
+            management. These tools make it easy and affordable to design and build the app, ensuring compatibility
+            across different devices and systems for user accessibility.</p>
+    </div>
+    <div class="thank-you" style="display: none;"><h1>Thank you.</h1></div>
+</div>
+<script>
+    setTimeout(() => {
+        const thankYou = document.querySelector('.thank-you');
+        thankYou.style.display = 'block'; // Show "Thank you"
+        setInterval(() => {
+            thankYou.style.opacity = '1'; // Show "Thank you"
+            setTimeout(() => {
+                thankYou.style.opacity = '0'; // Hide "Thank you" after specified time
+            }, 10000); // Adjust time for "Thank you" to disappear
+        }, 25000); // Repeat every 19 seconds (including the time for "Thank you" to stay visible)
+    }, 18500); // Start after 19 seconds
+</script>
+</body>
+</html>
