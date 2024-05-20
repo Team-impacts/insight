@@ -63,7 +63,7 @@
                 "madhumathi": "23cs078",
                 "maheshkumar": "23cs079",
                 "malarvizhi": "23cs080",
-                "mamtha@akshaya": "23cs081",
+                "mamthaakshaya": "23cs081",
                 "manimegalai": "23cs082",
                 "manishraghul": "23cs083",
                 "manobalan": "23cs084",
@@ -71,14 +71,14 @@
                 "mhithun": "23cs086",
                 "midhuna": "23cs087",
                 "miruna": "23cs088",
-                "moganprasad": "23cs089",
+                "moganprasadh": "23cs089",
                 "mohamedanas": "23cs090",
                 "mohamedfazil": "23cs091",
                 "mohammedsafil": "23cs092",
                 "mohanapriya": "23cs093",
                 "mohith": "23cs094",
                 "monisha": "23cs095",
-                "mugilan": "23cs096",
+                "mugilan": "mugilan",
                 "mukishkumar": "23cs097",
                 "mythili": "23cs098",
                 "mythreyini": "23cs099",
@@ -115,20 +115,90 @@
                 "rohith": "23cs130"
             };
 
+            var fullNames = {
+                "karpagamaheswari": "KARPAGAMAHESWARI V",
+                "karthick": "KARTHICK G R",
+                "karthikraja": "KARTHIK RAJA G",
+                "karthikesh": "KARTHIKESH N",
+                "kavishanthini": "KAVI SHANTHINI G",
+                "kaviprabha": "KAVIPRABHA S T",
+                "kavyashree": "KAVYASHREE G",
+                "kirtick": "KIRTICK M M",
+                "kirubhasagar": "KIRUBHA SAGAR T",
+                "kishorraguram": "KISHOR RAGURAM G",
+                "kritikasapkota": "KRITIKA SAPKOTA",
+                "lakshetaa": "LAKSHETAA R",
+                "madhavakrishnan": "MADHAVA KRISHNAN T",
+                "madhumathi": "MADHUMATHI V E",
+                "maheshkumar": "MAHESH KUMAR S",
+                "malarvizhi": "MALARVIZHI S",
+                "mamthaakshaya": "MAMTHA @ AKSHAYA R",
+                "manimegalai": "MANIMEGALAI E S",
+                "manishraghul": "MANISH RAGHUL S J",
+                "manobalan": "MANOBALAN M",
+                "manobharathi": "MANOBHARATHI K",
+                "mhithun": "MHITHUN T R",
+                "midhuna": "MIDHUNA A",
+                "miruna": "MIRUNA C",
+                "moganprasadh": "MOGAN PRASADH K",
+                "mohamedanas": "MOHAMED ANAS A",
+                "mohamedfazil": "MOHAMED FAZIL M",
+                "mohammedsafil": "MOHAMMED SAFIL S",
+                "mohanapriya": "MOHANA PRIYA M",
+                "mohith": "MOHITH B",
+                "monisha": "MONISHA U",
+                "mugilan": "MUGILAN R",
+                "mukishkumar": "MUKISH KUMAR T",
+                "mythili": "MYTHILI P",
+                "mythreyini": "MYTHREYINI K J",
+                "nagalakshmi": "NAGALAKSHMI S",
+                "naresh": "NARESH S",
+                "narthika": "NARTHIKA M",
+                "naveenprasanth": "NAVEEN PRASANTH P",
+                "nigun": "NIGUN KARTHI R",
+                "nikhilpranesh": "NIKHILPRANESH K S",
+                "nisasowbika": "NISA SOWBIKA K S",
+                "nishanthram": "NISHANTH RAM K",
+                "nithien": "NITHIEN S A",
+                "nithyaganesh": "NITHYA GANESH K",
+                "nithyasarathi": "NITHYASARATHI M",
+                "nivetha": "NIVETHA G",
+                "oshiyani": "OSHIYANI E",
+                "poojana": "POOJANA S",
+                "poonguzhali": "POONGUZHALI C",
+                "pranaov": "PRANAOV S",
+                "pranati": "PRANATI R",
+                "prasannakumar": "PRASANNA KUMAR H",
+                "prasanna": "PRASANNA R",
+                "praveenmuthukumar": "PRAVEEN MUTHU KUMAR R",
+                "ragulraj": "RAGUL RAJ N",
+                "ramya": "RAMYA S",
+                "ravena": "RAVENA S",
+                "raviagrahari": "RAVI AGRAHARI",
+                "rhythanvarsha": "RHYTHAN VARSHA J",
+                "rikesh": "RIKESH YADAV",
+                "rithanya": "RITHANYA B R",
+                "rithiga": "RITHIGA S",
+                "rithika": "RITHIKA R",
+                "rohini": "ROHINI J K",
+                "rohith": "ROHITH N"
+            };
+            var fullName = fullNames[nameFromEmail];
             if (!(nameFromEmail in students)) {
-                document.getElementById('passwordError').textContent = nameFromEmail + ", please enter the correct password.";
+                document.getElementById('passwordError').textContent = fullName + ", please enter the valid email.";
                 document.getElementById('passwordError').style.display = 'inline';
                 return false;
             } else {
                 var correctPassword = students[nameFromEmail];
                 if (password !== correctPassword) {
-                    document.getElementById('passwordError').textContent = nameFromEmail + ", please enter the correct password.";
+                    document.getElementById('passwordError').textContent = fullName + ", please enter the correct password.";
                     document.getElementById('passwordError').style.display = 'inline';
                     return false;
                 } else {
                     // Successful validation
                     document.getElementById('passwordError').style.display = 'none';
-                    window.location.href = "student.html?name=" + encodeURIComponent(nameFromEmail);
+                    
+                    window.location.href = "student.html?name=" + encodeURIComponent(fullName);
                     return false; // Prevent default form submission
                 }
             }
