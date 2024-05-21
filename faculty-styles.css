@@ -32,9 +32,8 @@ header {
 }
 .menu-img img {
     left: 500%;
-    justify-content: flex-end;
+
     transition: transform 2s ease, opacity 2s ease;
-    position: relative;
     height: 50px;
     width: 50px;
     border-radius: 50%;
