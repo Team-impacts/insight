@@ -31,7 +31,7 @@ header {
     align-items: center;
 }
 .menu-img img {
-    left: 550%;
+    left: 500%;
     justify-content: flex-end;
     transition: transform 2s ease, opacity 2s ease;
     position: relative;
