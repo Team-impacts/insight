@@ -35,7 +35,15 @@
             }
         }
             displayStudentName(); 
-        
+            function re() {
+                const menuIcon = document.getElementById('menuIcon');
+                menuIcon.classList.add('animate');
+                
+                // Redirect to menu.html after 2 seconds
+                setTimeout(() => {
+                    window.location.href = "menu.html";
+                }, 2000); // 2000 milliseconds = 2 seconds
+            }
     </script>
 </body>
 </html>
