@@ -2,43 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="faculty-styles.css">
+    <link rel="stylesheet" href="login-styles.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Home</title>
+    <title>Login</title>
 </head>
 <body>
     <header>
-        <div class="menu-img">
-            <img onclick="re()" src="menu.png" alt="Menu Icon" id="menuIcon">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1 id="appname">insight</h1>
         </div>
     </header>
     <main>
-        <h1 id="welcomename"></h1>
+        <h1 style="color: rgb(72, 83, 93);">Pick your role</h1>
+        <div class="image-container">
+            <img src="student.jpeg" alt="Student" class="login-image" id="student-image" onclick="selectRole('student')">
+            <img src="faculty.jpeg" alt="Faculty" class="login-image" id="faculty-image" onclick="selectRole('faculty')">
+        </div>
+        <button id="signin-button" onclick="goToLoginPage()">Go to Sign-in Page</button>
     </main>
     <script>
-        function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
+        let selectedRole = '';
 
-        function displayStudentName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const studentName = urlParams.get('name');
-            const capitalizedStudentName = capitalizeFirstLetter(studentName);
-            document.getElementById('welcomename').innerHTML = "Welcome, esteemed faculty: " + capitalizedStudentName;
-        }
-
-        displayStudentName();
-
-        function re() {
-            const menuIcon = document.getElementById('menuIcon');
-            menuIcon.classList.add('animate');
-            
-            // Redirect to menu.html after 2 seconds
-            setTimeout(() => {
-                window.location.href = "menu.html";
-            }, 2000); // 2000 milliseconds = 2 seconds
+        function selectRole(role) {
+            selectedRole = role;
+            document.getElementById('student-image').classList.remove('selected');
+            document.getElementById('faculty-image').classList.remove('selected');
+        
+            if (role === 'student') {
+                document.getElementById('student-image').classList.add('selected');
+            } else if (role === 'faculty') {
+                document.getElementById('faculty-image').classList.add('selected');
+            }
         }
         
+        function goToLoginPage() {
+            if (selectedRole === 'student') {
+                window.location.href = 'student-login.html';
+            } else if (selectedRole === 'faculty') {
+                window.location.href = 'faculty-login.html';
+            } else {
+                alert('Please select a role before proceeding.');
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,65 +1,4 @@
-/* login-styles.css */
-
-/* Your existing styles */
-
-/* Input box styling */
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none; /* Remove border */
-    border-radius: 10px; /* Add curved edges */
-    width: 100%; /* Adjusted width */
-    max-width: 400px;
-    transition: box-shadow 0.3s; /* Add transition for shadow effect */
-    outline: none; /* Remove outline */
-}
-
-/* Add shadow effect on input box when hovered */
-input[type="email"]:hover,
-input[type="password"]:hover {
-    box-shadow: 0 0 10px rgb(247, 7, 7); /* Add shadow effect */
-}
-
-/* Add shadow effect on input box when focused */
-input[type="email"]:focus,
-input[type="password"]:focus {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Apply the same shadow as the image selection */
-}
-
-/* Button styling */
-button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: rgba(25,119,243,255);
-    border: none;
-    border-radius: 5px; /* Add curved edges */
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s;
-    width: 100%;
-    max-width: 400px;
-}
-
-/* Add shadow effect on button when hovered */
-button[type="submit"]:hover {
-    background-color: #0056b3;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-}
-
-/* Error message styling */
-.error-message {
-    color: rgb(252, 33, 33);
-    display: none;
-
-}
-p{
-    align-items: center;
-padding: 15px;
-text-align: center;
-}
-/* Your existing styles */
+/* General styles */
 body {
     margin: 0;
     padding: 0;
@@ -127,9 +66,24 @@ main {
     height: auto;
     object-fit: contain;
     cursor: pointer;
-    transition: border 0.3s;
     border-radius: 35px; /* Add curved edges */
-    
+    outline: none; /* Remove default outline */
+    transition: box-shadow 0.3s, border 0.3s; /* Smooth transition */
+    user-select: none; /* Prevent default selection behavior */
+    -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile devices */
+}
+
+/* Remove default focus and active styles */
+.login-image:focus,
+.login-image:active {
+    outline: none; /* Remove default outline */
+    box-shadow: none; /* Remove default shadow */
+    border: none; /* Remove any border */
+}
+
+/* Styles for selected image */
+.login-image.selected {
+   box-shadow: 0 0 20px rgb(0, 255, 0); /* Add green shadow */
 }
 
 /* Adjust the width of each image for mobile devices */
@@ -156,14 +110,6 @@ main {
         max-height: 902px;
     }
 }
-
-.login-image.selected {
-    border: px solid;
-    border-image-slice: 1;
-    border-radius: 40px; /* Add curved edges to border */
-    box-shadow: 0 0 20px rgb(0, 255, 0); /* Add green shadow */
-}
-
 
 #signin-button {
     padding: 10px 20px;
